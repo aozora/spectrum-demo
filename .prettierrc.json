@@ -1,4 +1,5 @@
 {
+  "printWidth": 300,
   "endOfLine": "lf",
   "semi": true,
   "singleQuote": true,

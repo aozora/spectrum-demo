@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import store from './store';
 
 // SPECTRUM
 
@@ -24,10 +26,13 @@ import '@spectrum-css/typography/dist/index-vars.css';
 import '@spectrum-css/icon/dist/index-vars.css';
 import '@spectrum-css/button/dist/index-vars.css';
 import '@spectrum-css/sidenav/dist/index-vars.css';
+import '@spectrum-css/card/dist/index-vars.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
