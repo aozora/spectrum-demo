@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useCallback } from 'react';
+import { format, parse } from 'date-fns';
 
 const MediumCard = ({ medium }) => {
   const baseUrl = 'http://image.tmdb.org/t/p/';
   const size = 'w342';
+
+  const formatDate = useCallback(date => {
+    const d = parse(date, 'yyyy-MM-dd', new Date());
+    return format(d, 'MMM d, yyyy');
+  }, []);
 
   return (
     <div
@@ -27,7 +33,9 @@ const MediumCard = ({ medium }) => {
           <div className="spectrum-Card-subtitle">{medium.original_title}</div>
         </div>
       </div>
-      <div className="spectrum-Card-footer">Footer</div>
+      <div className="spectrum-Card-footer">
+        <p>Released {formatDate(medium.release_date)}</p>
+      </div>
     </div>
   );
 };
